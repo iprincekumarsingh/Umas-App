@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| API Routes_stu
 |--------------------------------------------------------------------------
 |
 | Here is where you can register API routes for your application. These
@@ -16,4 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+Route::get('/user', function(){
+   return response()->json(['user'=>['message'=>true,'user_id'=>1]]);
 });
