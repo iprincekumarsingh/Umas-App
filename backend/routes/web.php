@@ -5,7 +5,11 @@ use App\Http\Controllers\student\StudentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('auth.loginPane');
+    if (session()->has('id')) {
+        return to_route('student.home');
+    } else {
+        return view('auth.loginPane');
+    }
 })->name('user.LoginPage');
 
 
@@ -16,5 +20,6 @@ Route::controller(LoginContrller::class)->group(function () {
 });
 Route::controller(StudentController::class)->group(function () {
     Route::get('/user', 'index')->name('student.home');
+    Route::post('/attendanceSubmit', 'attendance')->name('student.adSubmit');
     Route::get('logout', 'logout');
 });

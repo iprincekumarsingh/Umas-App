@@ -11,21 +11,28 @@ class LoginContrller extends Controller
 {
     public function login(Request $request)
     {
-        $validated = $request->validate([
-            'id_student' => 'required',
-            'password' => 'required ',
-        ]);
-        $user = Student::select('student_id','user_type')->
-        where('stu_registrationNumber', $request['id_student'])
-        ->where('stu_password', $request['password'])->first();
-        if ($user) {
-            session()->put('id',$user['student_id']);
-            session()->put('isLoggedIn',1);
-            session('role',$user['user_type']);
+        if(session()->has('id')){
             return to_route('student.home');
+
         }
-        else {
+        else{
+            $validated = $request->validate([
+                'id_student' => 'required',
+                'password' => 'required ',
+            ]);
+            $user = Student::select('student_id','user_type')->
+            where('stu_registrationNumber', $request['id_student'])
+            ->where('stu_password', $request['password'])->first();
+            if ($user) {
+                session()->put('id',$user['student_id']);
+                session()->put('isLoggedIn',1);
+                session('role',$user['user_type']);
+                return to_route('student.home');
+            }
+            else {
+            }
         }
+        
     }
     public function alogin()
     {

@@ -150,3 +150,15 @@ nav ul li a{
     color: var(--bs-danger);
     font-size: 1rem;
 }
+.ad{
+    background: var(--bs-success);
+}
+.ad input{
+    cursor: pointer;
+    background: none;
+    color: var(--bs-body-bg);
+    font-size: 24px;
+    outline: none;
+    border: none;
+
+}

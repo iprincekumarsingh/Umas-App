@@ -22,7 +22,7 @@
                     <a href="">Profile</a>  
                     @endif
                     <a href="">Attendance</a>
-                  
+                    <a href="">Profile</a>
                 </li>
             </ul>
         </nav>
