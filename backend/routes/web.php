@@ -24,7 +24,10 @@ Route::controller(StudentController::class)->group(function () {
     // Add student view
     Route::get('/add-student', 'addStudentView')->name('add-student');
     Route::post('/add-student', 'addstudent')->name('add-student-data');
-
+    //search the student
+    Route::post('search','search')->name('student.search');
+    Route::get('/result','searchresult')->name('search.result');
     Route::get('attendance','viewAttendance')->name('ViewAttendance');
+    Route::get('/studentAttendance/{ra}/{id}/{name?}','stuAttendance')->name('stuAd');
     Route::get('logout', 'logout');
 });

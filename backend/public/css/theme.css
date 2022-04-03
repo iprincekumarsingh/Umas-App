@@ -97,6 +97,7 @@ button{
 }
 header{
     display: flex;
+    height: 49px;
     align-items: center;
     justify-content: space-between;
     /* padding: 5px; */
@@ -113,9 +114,9 @@ nav ul li {
     list-style: none;
 }
 nav ul li form {
-    background:var(--bs-gray-400);
-
-    padding: 10px;
+    background: var(--bs-gray-400);
+    padding: 1px;
+    border-radius: 10px;
 }
 nav ul li  form input{
     background: none;
@@ -204,4 +205,3 @@ nav ul li a{
     margin: 5px;
 
 }
-.

@@ -120,7 +120,7 @@
                     <td>{{ $item['section'] }}</td>
                     <td>{{ $item['branch'] }}</td>
                     <td>{{ $item['status'] }}</td>
-                    {{-- <td>{{$item['dob']}}</td> --}}
+                    <td>{{$item['dob']}}</td>
                     <td>{{ $item['created_at'] }}</td>
                 </tr>
             @endforeach

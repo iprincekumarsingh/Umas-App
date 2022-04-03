@@ -27,8 +27,9 @@
             <ul>
                 @if (session()->has('role') == 'admin')
                     <li>
-                        <form action="" method="post">
-                            <input type="text" name="" placeholder="Search Student" id="">
+                        <form action="{{ route('student.search') }}" method="post">
+                            @csrf
+                            <input type="text" name="name" placeholder="Search Student" id="">
                         </form>
                     </li>
                     <li> <a href="{{ url('/') }}">Dashboard</a></li>

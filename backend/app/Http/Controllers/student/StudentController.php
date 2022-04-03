@@ -41,11 +41,7 @@ class StudentController extends Controller
             return to_route('user.LoginPage');
         }
     }
-    public function logout()
-    {
-        session()->flush();
-        return to_route('user.LoginPage');
-    }
+
     public function attendance(Request $request)
     {
         $attendance = Attendance::where('sid', session('id'))
@@ -96,5 +92,33 @@ class StudentController extends Controller
         } else {
             return to_route('add-student')->with('msg', 'Student is Already Registered');
         }
+    }
+
+    // search feature
+    public function search(Request $request)
+    {
+        $searchKey = $request['name'];
+        $data = Student::
+            where('name', 'LIKE', "%{$request['name']}%")
+            ->orWhere('branch', 'LIKE', "%{$request['name']}%")
+            ->get();
+        try {
+            //code...
+            if ($data) {
+                return view('dashboard.search')->with(compact('data'));
+            }
+        } catch (\Throwable $th) {
+            
+            echo "Some issue error";
+        }
+    }
+    public function stuAttendance($ra,$id,$name)
+    {
+      echo $ra;
+    }   
+    public function logout()
+    {
+        session()->flush();
+        return to_route('user.LoginPage');
     }
 }
