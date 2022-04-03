@@ -21,5 +21,10 @@ Route::controller(LoginContrller::class)->group(function () {
 Route::controller(StudentController::class)->group(function () {
     Route::get('/user', 'index')->name('student.home');
     Route::post('/attendanceSubmit', 'attendance')->name('student.adSubmit');
+    // Add student view
+    Route::get('/add-student', 'addStudentView')->name('add-student');
+    Route::post('/add-student', 'addstudent')->name('add-student-data');
+
+    Route::get('attendance','viewAttendance')->name('ViewAttendance');
     Route::get('logout', 'logout');
 });

@@ -58,8 +58,8 @@ body{
     font-family: Nunito,sans-serif;
     font-family: Source Sans Pro,sans-serif;
     --tw-bg-opacity: 1;
-    background-color: rgb(14 25 36/var(--tw-bg-opacity));
-    color: var(--bs-body-bg);
+    /* background-color: rgb(14 25 36/var(--tw-bg-opacity)); */
+    /* color: var(--bs-body-bg); */
 }
 .screenChooser{
     margin: 0;
@@ -99,19 +99,39 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    /* padding: 5px; */
+    border-bottom: 1px solid var(--bs-gray-300);
 }
 .logo{
     text-align: center;
-    font-size: 34px;
+    /* font-size: 34px; */
 }
 nav ul li {
+    display: inline-block;
+    text-align: center;
     text-decoration: none;
     list-style: none;
 }
+nav ul li form {
+    background:var(--bs-gray-400);
+
+    padding: 10px;
+}
+nav ul li  form input{
+    background: none;
+    border: none;
+    /* background: var(--bs-gray-300); */
+    border-radius: 10px;
+    text-align: center;
+    outline: none;
+    width:300px;
+    height: 30px;
+}
 nav ul li a{
     margin-left: 10px;
-    color: var(--bs-body-bg);
+    /* color: var(--bs-body-bg); */
+    color: var(--bs-body-color);
+    font-weight: 600;
     text-decoration: none;
     font-size: 18px;
 }
@@ -162,3 +182,26 @@ nav ul li a{
     border: none;
 
 }
+.form{
+    /* width: 100vw; */
+
+    padding: 10px;
+    margin: 10px;
+}
+
+.add form input{
+    /* display: flex; */
+    flex-direction: row;
+    width: 200px;
+    height: 20px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid var(--bs-gray);
+    margin: 10px;
+    /* background: var(--bs-body-color); */
+    padding: 20px;
+    font-size: 18px;
+    margin: 5px;
+
+}
+.
