@@ -60,65 +60,29 @@ class StudentController extends Controller
             $newad->save();
             return to_route('student.home')->with('status', 1);
         }
-        // } else {
-        //     return to_route('student.home')->with('msg', "Already Submiitted the Attendance");
-        // }
+   
     }
-    public function addStudentView()
+    public function stuAttendance($ra, $id, $name)
     {
-        return view('dashboard.addStudent');
+        echo $ra;
     }
-    public function addstudent(Request $request)
+    public function studentData()
     {
-        echo "<pre>";
-        print_r($request->all());
-        $data = Student::where('stu_RegistrationNumber', $request['sid'])->first();
-        if ($data == null) {
-            $stu = new Student;
-            $stu->user_type = "student";
-            $stu->name = $request['name'];
-            $stu->stu_phone = $request['phone'];
-            $stu->stu_email = $request['email'];
-            $stu->stu_RegistrationNumber = $request['sid'];
-            $stu->branch = $request['branch'];
-            $stu->section = $request['sec'];
-            $stu->year_from = $request['cyear'];
-            $stu->current_year = $request['cyear'];
-            $stu->current_sem = 1;
-            $stu->year_too = $request['lyear'];
-            $stu->stu_dob = $request['dob'];
-            $stu->stu_password = $request['pass'];
-            $stu->save();
-        } else {
-            return to_route('add-student')->with('msg', 'Student is Already Registered');
-        }
-    }
 
-    // search feature
-    public function search(Request $request)
-    {
-        $searchKey = $request['name'];
-        $data = Student::
-            where('name', 'LIKE', "%{$request['name']}%")
-            ->orWhere('branch', 'LIKE', "%{$request['name']}%")
+        $studentPAttendance = Student::join('attendance', 'student.student_id', '=', 'attendance.sid')
+            ->where('student_id', session('id'))
             ->get();
-        try {
-            //code...
-            if ($data) {
-                return view('dashboard.search')->with(compact('data'));
-            }
-        } catch (\Throwable $th) {
-            
-            echo "Some issue error";
+        return view('dashboard.student')->with(compact('studentPAttendance'));
+    }
+    public function profile()
+    {
+        if (session()->has('role') != "admin") {
+
+            $data = Student::where('student_id', session('id'))
+                ->get();
+            return view('dashboard.profile')->with(compact('data'));
+        } else {
         }
     }
-    public function stuAttendance($ra,$id,$name)
-    {
-      echo $ra;
-    }   
-    public function logout()
-    {
-        session()->flush();
-        return to_route('user.LoginPage');
-    }
+    
 }
