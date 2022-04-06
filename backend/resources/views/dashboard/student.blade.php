@@ -2,25 +2,52 @@
 @section('main-container')
     <div style="display: block" class="table-today">
 
-        <table>
-            <div style="margin-top: 5px" class="">
-                Student name - {{ session('name') }}
-            </div>
-            <tr>
-                <th>Reg no</th>
-                <th>Attendance Date</th>
-            </tr>
+        @if (count($studentPAttendance)>0)
+            <table>
 
-            @if (session()->has('role') != 'admin')
-                @foreach ($studentPAttendance as $item)
+                <div style="margin-top: 5px" class="">
+                    Student name - {{ session('name') }}
+                </div>
+                @if (session()->has('isLoggedIn') != 'admin')
                     <tr>
-                        <td>{{ $item['stu_RegistrationNumber'] }}</td>
-                        <td>{{ $item['dob'] }}</td>
+                        <th>Reg no</th>
+                        <th>Attendance Date</th>
                     </tr>
-                @endforeach
-            @else
-            @endif
+                @else
+                    <tr>
+                        <th>Name</th>
+                        <th>Regd No</th>
+                        <th>Branch</th>
+                        <th>Section</th>
+                        <th>Attendance Date</th>
+                    </tr>
+                @endif
 
-        </table>
+
+
+                @if (session()->has('isLoggedIn') != 'admin')
+                    @foreach ($studentPAttendance as $item)
+                        <tr>
+                            <td>{{ $item['stu_RegistrationNumber'] }}</td>
+                            <td>{{ $item['dob'] }}</td>
+                        </tr>
+                    @endforeach
+                @else
+                    @foreach ($studentPAttendance as $item)
+                        <tr>
+                            <td>{{ $item['name'] }}</td>
+                            <td>{{ $item['stu_RegistrationNumber'] }}</td>
+                            <td>{{ $item['branch'] }}</td>
+                            <td>{{ $item['section'] }}</td>
+                            <td>{{ $item['dob'] }}</td>
+                        </tr>
+                    @endforeach
+                @endif
+
+            </table>
+        @else
+            <h1>No Attendance Found </h1>
+        @endif
+
     </div>
 @endsection

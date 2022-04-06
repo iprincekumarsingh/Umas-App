@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Notice;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -59,5 +60,10 @@ class Controller extends BaseController
         } else {
             return to_route('public.notice')->with('status', "News not found");
         }
+    }
+    public function studentdata()
+    {
+    $stuData = Student::get();
+        return view('dashboard.search')->with(compact('stuData'));
     }
 }

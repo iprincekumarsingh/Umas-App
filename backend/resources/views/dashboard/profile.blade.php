@@ -81,9 +81,12 @@
                     
                 </div>
                 <label class="" for=""></label>
-                <div class="inp-data btn-save">
+                @if (session()->has('role')!="admin")
+                    
+                {{-- <div class="inp-data btn-save">
                     <input style="text-align: center" type="submit" name="" value="Save" id="">
-                </div>
+                </div> --}}
+                @endif
                 
         </div>
 

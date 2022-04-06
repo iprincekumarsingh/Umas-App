@@ -32,15 +32,20 @@ Route::controller(StudentController::class)->group(function () {
 
     Route::get('/assignment-upload', 'uploadAssignment');
 
-    Route::get('/profile', 'profile');
+    Route::get('/profile/{id?}', 'profile');
 
     Route::get('/student', 'studentData');
+
+
+
 });
 Route::controller(adminController::class)->group(function () {
     Route::get('/add-student', 'addStudentView')->name('add-student');
     Route::post('/add-student', 'addstudent')->name('add-student-data');
-    Route::post('search', 'search')->name('student.search');
+    Route::get('search', 'search')->name('student.search');
     Route::post('createNotice', 'createNotice')->name('news.create');
+    Route::post('/studentbranch','filterData')->name('stu.filter.branch');
+    Route::get('/stubranch/{branch}','FilterView')->name('filter_v');
 
 });
 Route::controller(Controller::class)->group(function () {
@@ -51,5 +56,7 @@ Route::controller(Controller::class)->group(function () {
     Route::get('createnotice', 'createNoticeView')->name('create.notice');
     Route::post('noticedelete/{notice_id}', 'deleteNotice')->name('news.delete');
     Route::get('xnotice/{id}','viewnotice')->name('view.notice');
+    Route::get('/studentall','studentdata');
+
 
 });

@@ -59,7 +59,7 @@
             </div>
         </div>
     </a>
-    <a href="z">
+    <a href="{{url('studentall')}}">
 
    
         <div style="background: #EDBF69" class="student-box">
@@ -69,7 +69,7 @@
             </div>
         </div>
     </a>
-    <a href="">
+    {{-- <a href="">
 
  
         <div style="background: #E5D68A" class="student-box">
@@ -88,7 +88,7 @@
               Student  Attendance
             </div>
         </div>
-    </a>
+    </a> --}}
         
        
     </div>

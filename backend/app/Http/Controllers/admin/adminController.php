@@ -63,6 +63,7 @@ class adminController extends Controller
     }
     public function createNotice(Request $request)
     {
+
         echo "<pre>";
         print_r($request->all());
         $news = new Notice;
@@ -70,5 +71,16 @@ class adminController extends Controller
         $news->notice = $request['notice'];
         $news->save();
         return to_route('create.notice')->with('status', 'Notice uploaded successfully');
+    }
+    public function FilterView()
+    {
+        // return view('dashboard.search');
+    }
+    public function filterData(Request $re)
+    {
+        $stufilter = Student::where('branch', $re['branch'])
+            ->get();
+        return view('dashboard.search', ['branch', $re['branch']])->with(compact('stufilter'));
+        // return to_route('filter_v')
     }
 }

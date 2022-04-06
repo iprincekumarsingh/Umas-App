@@ -35,16 +35,17 @@
                 </div>
             </a>
         @endif
-
+            
         
         @if (session()->has('isLoggedIn'))
         <nav>
             <ul>
                 @if (session()->has('role') == 'admin')
                     <li>
-                        <form action="{{ route('student.search') }}" method="post">
+                        <form action="{{route('student.search')}}" method="post">
                             @csrf
-                            <input type="text" name="name" placeholder="Search Student" id="">
+                            <input type="text" name="named" placeholder="Search Student" id="">
+                            {{-- <input type="submit" value="" hidden> --}}
                         </form>
                     </li>
                     <li> <a href="{{ url('/user') }}">Dashboard</a></li>

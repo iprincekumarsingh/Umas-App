@@ -60,21 +60,22 @@ class StudentController extends Controller
             $newad->save();
             return to_route('student.home')->with('status', 1);
         }
-   
     }
     public function stuAttendance($ra, $id, $name)
     {
-        echo $ra;
+        $studentPAttendance = Student::join('attendance', 'student.student_id', '=', 'attendance.sid')
+            ->where('student_id', $id)
+            ->get();
+        return view('dashboard.student')->with(compact('studentPAttendance'));
     }
     public function studentData()
     {
-
         $studentPAttendance = Student::join('attendance', 'student.student_id', '=', 'attendance.sid')
             ->where('student_id', session('id'))
             ->get();
         return view('dashboard.student')->with(compact('studentPAttendance'));
     }
-    public function profile()
+    public function profile($id = null)
     {
         if (session()->has('role') != "admin") {
 
@@ -82,7 +83,9 @@ class StudentController extends Controller
                 ->get();
             return view('dashboard.profile')->with(compact('data'));
         } else {
+            $data = Student::where('student_id', $id)
+                ->get();
+            return view('dashboard.profile')->with(compact('data'));
         }
     }
-    
 }

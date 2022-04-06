@@ -9,8 +9,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{ url('css/theme.css') }}">
 </head>
-
+<style>
+</style>
 <body>
+    <div class=""></div>
     <div class="screenChooser">
         <h1>Student Login</h1>
         <form action="{{ route('login') }}" method="post">
