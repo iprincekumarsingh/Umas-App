@@ -23,12 +23,12 @@
 
 
         @if (session()->has('role') == 'admin')
-            <a style="text-decoration: none" href="{{ url('/user') }}">
+            <a style="text-decoration: none" href="{{ route('student.home') }}">
                 <div style="font-size: 34px" class="logo">
                     Admin UMAS
                 </div>
             @else
-            <a style="text-decoration: none" href="{{ url('/user') }}">
+            <a style="text-decoration: none" href="{{route('student.home')}}">
 
                 <div style="font-size: 34px" class="logo">
                     UMAS
@@ -41,16 +41,15 @@
         <nav>
             <ul>
                 @if (session()->has('role') == 'admin')
-                    <li>
+                    {{-- <li>
                         <form action="{{route('student.search')}}" method="post">
                             @csrf
-                            <input type="text" name="named" placeholder="Search Student" id="">
-                            {{-- <input type="submit" value="" hidden> --}}
+           
                         </form>
-                    </li>
-                    <li> <a href="{{ url('/user') }}">Dashboard</a></li>
+                    </li> --}}
+                    <li> <a href="{{ route('student.home') }}">Dashboard</a></li>
                     <li> <a href="{{ route('create.notice') }}">Create Notice</a></li>
-                    <li><a href="">Profile</a></li>
+                    {{-- <li><a href="">Profile</a></li> --}}
 
                 @else
                     <li><a href="{{ url('profile') }}">Assignment</a></li>

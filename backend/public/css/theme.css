@@ -66,8 +66,26 @@ body {
     font-family: Nunito, sans-serif;
     font-family: Source Sans Pro, sans-serif;
     --tw-bg-opacity: 1;
-    /* background-color: rgb(14 25 36/var(--tw-bg-opacity)); */
-    /* color: var(--bs-body-bg); */
+    background-color: rgb(14 25 36 / var(--tw-bg-opacity));
+    color: var(--bs-body-bg);
+}
+a {
+    color: var(--bs-body-bg);
+}
+li {
+    color: var(--bs-body-bg);
+}
+input {
+    background: none;
+    color: var(--bs-body-bg);
+    border: none;
+}
+input::placeholder {
+    color: var(--bs-body-bg);
+}
+textarea {
+    background: none;
+    /* background-color.: none; */
 }
 .screenChooser {
     margin: 0;
@@ -139,8 +157,8 @@ nav ul li form input {
 }
 nav ul li a {
     margin-left: 10px;
-    /* color: var(--bs-body-bg); */
-    color: var(--bs-body-color);
+    color: var(--bs-body-bg);
+    /* color: var(--bs-body-color); */
     font-weight: 600;
     text-decoration: none;
     font-size: 18px;
@@ -213,7 +231,6 @@ nav ul li a {
     margin: 5px;
 }
 .profile {
-
     flex-wrap: nowrap;
     align-items: center;
     border-radius: 10px;
@@ -234,13 +251,11 @@ nav ul li a {
 }
 .profile-inf form {
     padding: 10px;
-   
 }
 .inp-data {
     border: 1px solid var(--bs-teal);
     margin: 5px;
     border-radius: 5px;
-
 }
 
 .inp-data input {
@@ -261,11 +276,11 @@ nav ul li a {
     width: 300px;
     margin-top: 4px;
 }
-.form-f{
+.form-f {
     display: flex;
     flex-wrap: wrap;
 }
-.btn-save{
+.btn-save {
     border: none;
     padding: 10px 20px;
     width: 300px;
@@ -274,6 +289,15 @@ nav ul li a {
     font-size: 24px;
     background: var(--bs-purple);
 }
-.btn-save input{
+.btn-save input {
     font-size: 24px;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.row .more-link a {
+    color: var(--bs-warning);
+    text-decoration: none;
 }

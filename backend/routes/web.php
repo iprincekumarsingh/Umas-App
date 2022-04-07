@@ -21,7 +21,7 @@ Route::controller(LoginContrller::class)->group(function () {
     Route::post('/admin/login', 'mod')->name('admin.login.check');
 });
 Route::controller(StudentController::class)->group(function () {
-    Route::get('/user', 'index')->name('student.home');
+    Route::get('/home', 'index')->name('student.home');
     Route::post('/attendanceSubmit', 'attendance')->name('student.adSubmit');
     // Add student view
 
